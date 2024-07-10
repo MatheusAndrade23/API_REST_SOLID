@@ -9,3 +9,6 @@ build
 
 # Vscode Config
 .vscode
+
+# Tests Coverage
+coverage

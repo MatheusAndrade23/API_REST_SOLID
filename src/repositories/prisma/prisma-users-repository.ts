@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/prisma";
-import { Prisma } from "@prisma/client";
+import { Prisma, User } from "@prisma/client";
 import { UsersRepositoryInterface } from "../users-repository";
 
 export class PrismaUsersRepository implements UsersRepositoryInterface {
@@ -9,6 +9,10 @@ export class PrismaUsersRepository implements UsersRepositoryInterface {
     });
 
     return user;
+  }
+
+  findById(id: string): Promise<User | null> {
+    throw new Error("Method not implemented.");
   }
 
   async create(data: Prisma.UserCreateInput) {

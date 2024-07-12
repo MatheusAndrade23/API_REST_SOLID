@@ -2,6 +2,7 @@ import { FastifyInstance } from "fastify";
 import { register } from "./controllers/register";
 import { authenticate } from "./controllers/authenticate";
 import { profile } from "./controllers/profile";
+import { verifyJwt } from "@/http/middlewares/verify-jwt";
 
 export const appRoutes = (app: FastifyInstance) => {
   app.post("/users", register);
@@ -10,5 +11,5 @@ export const appRoutes = (app: FastifyInstance) => {
 
   // Authenticated routes
 
-  app.get("/me", profile);
+  app.get("/me", { onRequest: [verifyJwt] }, profile);
 };

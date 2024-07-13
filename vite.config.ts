@@ -6,5 +6,6 @@ export default defineConfig({
   test: {
     environmentMatchGlobs: [["src/http/controllers/**", "prisma"]],
     dir: "src",
+    hookTimeout: 15000,
   },
 });

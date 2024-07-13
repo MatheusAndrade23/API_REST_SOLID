@@ -4,7 +4,7 @@ import { authenticate } from "./controllers/authenticate";
 import { profile } from "./controllers/profile";
 import { verifyJwt } from "@/http/middlewares/verify-jwt";
 
-export const appRoutes = (app: FastifyInstance) => {
+export const appRoutes = async (app: FastifyInstance) => {
   app.post("/users", register);
 
   app.post("/sessions", authenticate);

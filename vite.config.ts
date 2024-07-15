@@ -7,5 +7,16 @@ export default defineConfig({
     environmentMatchGlobs: [["src/http/controllers/**", "prisma"]],
     dir: "src",
     hookTimeout: 15000,
+    coverage: {
+      exclude: [
+        "src/app.ts",
+        "src/env/**",
+        "src/server.ts",
+        "src/lib/**",
+        "src/@types/**",
+        "vite.config.ts",
+        "prisma/**",
+      ],
+    },
   },
 });

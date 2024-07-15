@@ -30,6 +30,7 @@ export class InMemoryUsersRepository implements UsersRepositoryInterface {
       id: randomUUID(),
       name: data.name,
       email: data.email,
+      role: data.role ? data.role : "MEMBER",
       password_hash: data.password_hash,
       created_at: new Date(),
     };

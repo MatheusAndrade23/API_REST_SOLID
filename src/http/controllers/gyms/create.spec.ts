@@ -28,4 +28,25 @@ describe("Create Gym (e2e)", () => {
 
     expect(response.statusCode).toEqual(201);
   });
+
+  it("should not be able to create a gym without ADMIN role", async () => {
+    const { token } = await createAndAuthenticateUser(
+      app,
+      false,
+      "secondjhonjoe@example.com"
+    );
+
+    const response = await request(app.server)
+      .post("/gyms")
+      .set("Authorization", `Bearer ${token}`)
+      .send({
+        title: "JavaScript Gym",
+        description: "Some description.",
+        phone: "1199999999",
+        latitude: -27.2092052,
+        longitude: -49.6401091,
+      });
+
+    expect(response.statusCode).toEqual(401);
+  });
 });

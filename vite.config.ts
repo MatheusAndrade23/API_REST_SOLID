@@ -16,6 +16,7 @@ export default defineConfig({
         "src/@types/**",
         "vite.config.ts",
         "prisma/**",
+        "src/**/**.spec.ts",
       ],
     },
   },

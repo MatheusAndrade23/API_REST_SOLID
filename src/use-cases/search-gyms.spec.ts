@@ -11,6 +11,12 @@ describe("Search Gyms Use Case", () => {
     sut = new SearchGymsUseCase(gymsRepository);
   });
 
+  it("should not be able to search for a non-existent gym", async () => {
+    const gym = await gymsRepository.findById("non-existent-id");
+
+    expect(gym).toBeNull();
+  });
+
   it("should be able to search for gyms", async () => {
     await gymsRepository.create({
       title: "JavaScript Gym",

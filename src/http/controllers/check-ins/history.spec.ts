@@ -56,4 +56,13 @@ describe("Check-in History (e2e)", () => {
       }),
     ]);
   });
+
+  it("should not be able to list the history of check-ins with invalid token", async () => {
+    const response = await request(app.server)
+      .get("/check-ins/history")
+      .set("Authorization", `Bearer invalid-token`)
+      .send();
+
+    expect(response.statusCode).toEqual(401);
+  });
 });

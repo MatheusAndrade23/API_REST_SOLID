@@ -22,6 +22,7 @@ describe("Validate Check-in Use Case", () => {
     const createdCheckIn = await checkInsRepository.create({
       gym_id: "gym-01",
       user_id: "user-01",
+      validated_at: new Date(),
     });
 
     const { checkIn } = await sut.execute({

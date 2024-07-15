@@ -17,6 +17,7 @@ describe("Authenticate Use Case", () => {
     await usersRepository.create({
       name: "John Doe",
       email: "johndoe@example.com",
+      role: "MEMBER",
       password_hash: await hash("123456", 6),
     });
 
